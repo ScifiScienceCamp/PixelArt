@@ -29,6 +29,22 @@ function GUI:load()
       h = 25
   })
 
+  self.a = gooi.newSlider({
+      value = 0.3,
+      x = 212,
+      y = 8,
+      w = 100,
+      h = 25
+  })
+
+  self.w = gooi.newSlider({
+      value = 0.3,
+      x = 212,
+      y = 40,
+      w = 100,
+      h = 25
+  })
+
   self.name = gooi.newText({
     text = "Untitled",
     x = love.graphics.getWidth()-150,
@@ -68,11 +84,20 @@ function GUI:getB()
   return self.b.value*255
 end
 
+function GUI:getA()
+  return self.a.value*255
+end
+
+function GUI:getBrushWidth()
+  return self.w.value*25
+end
+
 function GUI:draw()
   gooi.draw()
   love.graphics.setColor(GUI:getR(), GUI:getG(), GUI:getB(), 255)
   love.graphics.rectangle("fill", 115, 8, 89, 89 )
   love.graphics.setColor(255,  255, 255, 255)
+  love.graphics.print("(R: "..GUI:getR()..", G: "..GUI:getG()..",\nB: "..GUI:getB()..", A: "..GUI:getA()..")", 212, 75)
 end
 
 function GUI:update(dt)

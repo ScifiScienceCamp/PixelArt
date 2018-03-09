@@ -6,7 +6,7 @@ require('GUI')
 words = ""
 
 function love.load()
-  Picture:load(400, 300)
+  Picture:load(600, 400)
   GUI:load()
 end
 
@@ -26,7 +26,7 @@ function love.mousereleased(x, y, button) gooi.released() end
 
 function love.keypressed(key, scancode, isrepeat)
   gooi.keypressed(key, scancode, isrepeat)
-  
+
 end
 
 function love.keyreleased(key, scancode)
