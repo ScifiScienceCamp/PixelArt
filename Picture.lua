@@ -1,3 +1,5 @@
+require("GUI")
+
 Picture = {}
 
 function Picture:load(width, height)
@@ -32,15 +34,15 @@ function Picture:update()
   if x > self.x and x < self.x + self.width - 1 then
     if y > self.y and y < self.y + self.height - 1 then
       if love.mouse.isDown(1) then
-        self.data:setPixel(x-self.x, y-self.y, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x+1, y-self.y, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x-1, y-self.y, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x, y-self.y-1, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x+1, y-self.y-1, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x-1, y-self.y-1, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x, y-self.y+1, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x+1, y-self.y+1, 0, 0, 0, 255 )
-        self.data:setPixel(x-self.x-1, y-self.y+1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x, y-self.y, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x, y-self.y-1, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y-1, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y-1, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x, y-self.y+1, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y+1, GUI:getR(), 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y+1, GUI:getR(), 0, 0, 255 )
         self.image:refresh()
       end
     end
