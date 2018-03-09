@@ -1,14 +1,13 @@
-require('DrawableImage')
+require('Picture')
 
 function love.load()
-  DrawableImage:load(400, 300)
+  Picture:load(400, 300)
 end
 
 function love.draw()
-  DrawableImage:draw()
+  Picture:draw()
 end
 
 function love.update()
-
-
+  Picture:update()
 end
