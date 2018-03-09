@@ -29,10 +29,18 @@ function Picture:update()
 
   x, y = love.mouse.getPosition()
 
-  if x > self.x and x < self.x + self.width then
-    if y > self.y and y < self.y + self.height then
+  if x > self.x and x < self.x + self.width - 1 then
+    if y > self.y and y < self.y + self.height - 1 then
       if love.mouse.isDown(1) then
         self.data:setPixel(x-self.x, y-self.y, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x, y-self.y-1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y-1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y-1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x, y-self.y+1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x+1, y-self.y+1, 0, 0, 0, 255 )
+        self.data:setPixel(x-self.x-1, y-self.y+1, 0, 0, 0, 255 )
         self.image:refresh()
       end
     end
