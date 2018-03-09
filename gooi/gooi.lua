@@ -1598,7 +1598,7 @@ end
 
 --*********************************************
 --*********************************************
---            Special dialog widgets:           
+--            Special dialog widgets:
 --*********************************************
 --*********************************************
 
@@ -2264,6 +2264,17 @@ function gooi.keypressed(key, scancode, isrepeat)
     for i = 1, #fields do
         local f = fields[i]
         if f == gooi.focused then
+            words = key
+            if key == "backspace" and #f.letters > 0 then
+              table.remove(f.letters, f.indexCursor)
+              f.indexCursor = f.indexCursor - 1
+            end
+            if key == "left" and f.indexCursor > 0 then
+              f.indexCursor = f.indexCursor - 1
+            end
+            if key == "right" and f.indexCursor < #f.letters then
+              f.indexCursor = f.indexCursor + 1
+            end
             f:typeCode(key)
             f:setToRepeat(key)
         end

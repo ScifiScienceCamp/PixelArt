@@ -1,4 +1,5 @@
 require "gooi"
+--require("Picture")
 
 GUI = {}
 
@@ -28,6 +29,31 @@ function GUI:load()
       h = 25
   })
 
+  self.name = gooi.newText({
+    text = "Untitled",
+    x = love.graphics.getWidth()-150,
+    y = 8,
+    w = 146,
+    h = 30
+  })
+
+  self.save = gooi.newButton({
+    text = "Save Image",
+    x = love.graphics.getWidth()-150,
+    y = 45,
+    w = 146,
+    h = 30
+  })
+
+  self.save:onRelease(function()
+    gooi.confirm({
+      text = "Save image as:\n\""..self.name:getText()..".png\"",
+      ok = function()
+        Picture.data:encode("png", self.name:getText()..".png")
+      end
+    })
+  end)
+
 end
 
 function GUI:getR()
@@ -49,6 +75,6 @@ function GUI:draw()
   love.graphics.setColor(255,  255, 255, 255)
 end
 
-function GUI:update()
-  gooi.update()
+function GUI:update(dt)
+  gooi.update(dt)
 end
